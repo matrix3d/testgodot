@@ -1,0 +1,85 @@
+[gd_scene load_steps=13 format=3 uid="uid://dyo7n2ne5o1yd"]
+
+[ext_resource type="Texture2D" uid="uid://ovf4yxhhp7rv" path="res://assets/alucard-7.png" id="1_j625j"]
+[ext_resource type="Script" path="res://scripts/character_body_2d.cs" id="1_vel4q"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b7ccr"]
+atlas = ExtResource("1_j625j")
+region = Rect2(0, 0, 50, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sdscn"]
+atlas = ExtResource("1_j625j")
+region = Rect2(51, 0, 50, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qyhi7"]
+atlas = ExtResource("1_j625j")
+region = Rect2(102, 0, 50, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_23gcf"]
+atlas = ExtResource("1_j625j")
+region = Rect2(153, 0, 50, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iee4i"]
+atlas = ExtResource("1_j625j")
+region = Rect2(204, 0, 50, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k24po"]
+atlas = ExtResource("1_j625j")
+region = Rect2(255, 0, 50, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_snfrn"]
+atlas = ExtResource("1_j625j")
+region = Rect2(306, 0, 50, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_im2n0"]
+atlas = ExtResource("1_j625j")
+region = Rect2(357, 0, 50, 50)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_k0cky"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b7ccr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sdscn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qyhi7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_23gcf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iee4i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k24po")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_snfrn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_im2n0")
+}],
+"loop": true,
+"name": &"new_animation",
+"speed": 10.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_6yver"]
+radius = 19.0
+height = 48.0
+
+[node name="CharacterBody2D" type="CharacterBody2D"]
+script = ExtResource("1_vel4q")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -25)
+sprite_frames = SubResource("SpriteFrames_k0cky")
+animation = &"new_animation"
+autoplay = "new_animation"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1, -26)
+shape = SubResource("CapsuleShape2D_6yver")
